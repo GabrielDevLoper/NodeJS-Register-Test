@@ -13,9 +13,9 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 
+app.use(cors());
 app.use(require('./routes'));
 
-app.use(cors());
 
 
 app.listen(process.env.PORT || 3333, () => {
