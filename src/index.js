@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -14,7 +13,9 @@ mongoose.connect(process.env.MONGO_URL, {
 });
 
 
-
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use(require('./routes'));
 
 
